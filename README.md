@@ -33,5 +33,3 @@ This project demonstrates the practical application of **Design and Analysis of 
 | Queue | Managing waiting patients |
 
 ---
-
-## 📁 Project Structure

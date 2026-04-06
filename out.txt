@@ -1,0 +1,140 @@
+In file included from main.cpp:1:0:
+types.h: In member function 'std::pair<std::vector<int>, std::vector<int> > Graph::dijkstra(int) const':
+types.h:105:18: error: expected unqualified-id before '[' token
+             auto [d, u] = pq.top(); pq.pop();
+                  ^
+types.h:106:17: error: 'd' was not declared in this scope
+             if (d > dist[u]) continue;
+                 ^
+types.h:106:26: error: 'u' was not declared in this scope
+             if (d > dist[u]) continue;
+                          ^
+types.h:107:32: error: 'u' was not declared in this scope
+             for (auto& e : adj[u]) {
+                                ^
+types.h:111:47: error: no matching function for call to 'std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int> >, std::greater<void> >::push(<brace-enclosed initializer list>)'
+                     pq.push({dist[e.to], e.to});
+                                               ^
+In file included from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue:64:0,
+                 from types.h:6,
+                 from main.cpp:1:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:558:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(const value_type&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int> >; _Compare = std::greater<void>; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(const value_type& __x)
+       ^~~~
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:558:7: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const value_type& {aka const std::pair<int, int>&}'
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:566:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(std::priority_queue<_Tp, _Sequence, _Compare>::value_type&&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int> >; _Compare = std::greater<void>; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(value_type&& __x)
+       ^~~~
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:566:7: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int> >, std::greater<void> >::value_type&& {aka std::pair<int, int>&&}'
+In file included from main.cpp:1:0:
+types.h: In member function 'bool Graph::isReachable(int, int) const':
+types.h:129:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = dijkstra(src);
+              ^
+types.h:130:16: error: 'dist' was not declared in this scope
+         return dist[dst] != INF;
+                ^~~~
+In file included from main.cpp:3:0:
+triage.h: In function 'EmergencyRequest collectPatientInfo(int, const Graph&)':
+triage.h:52:16: error: expected unqualified-id before '[' token
+     for (auto& [node, name] : g.nodeNames)
+                ^
+triage.h:52:16: error: expected ';' before '[' token
+triage.h:52:17: error: 'node' was not declared in this scope
+     for (auto& [node, name] : g.nodeNames)
+                 ^~~~
+triage.h:52:23: error: 'name' was not declared in this scope
+     for (auto& [node, name] : g.nodeNames)
+                       ^~~~
+triage.h: In lambda function:
+triage.h:52:29: error: expected '{' before ':' token
+     for (auto& [node, name] : g.nodeNames)
+                             ^
+triage.h: In function 'EmergencyRequest collectPatientInfo(int, const Graph&)':
+triage.h:52:29: error: expected ';' before ':' token
+triage.h:52:29: error: expected primary-expression before ':' token
+triage.h:52:29: error: expected ')' before ':' token
+triage.h:52:29: error: expected primary-expression before ':' token
+In file included from main.cpp:4:0:
+dispatch.h: In member function 'std::pair<int, int> DispatchEngine::findBestHospital(int, Priority, bool)':
+dispatch.h:61:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = graph.dijkstra(fromNode);
+              ^
+dispatch.h:66:21: error: 'dist' was not declared in this scope
+             int d = dist[h.locationNode];
+                     ^~~~
+dispatch.h:75:39: error: 'dist' was not declared in this scope
+         return {bestId, bestId >= 0 ? dist[hospitals[bestId].locationNode] : INF};
+                                       ^~~~
+dispatch.h:75:81: error: could not convert '{bestId, <expression error>}' from '<brace-enclosed initializer list>' to 'std::pair<int, int>'
+         return {bestId, bestId >= 0 ? dist[hospitals[bestId].locationNode] : INF};
+                                                                                 ^
+dispatch.h: In member function 'bool DispatchEngine::allocateNormal(EmergencyRequest&)':
+dispatch.h:84:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = graph.dijkstra(req.locationNode);
+              ^
+dispatch.h:87:60: error: 'dist' was not declared in this scope
+         int ambId = findNearestAmbulance(req.locationNode, dist);
+                                                            ^~~~
+dispatch.h:95:14: error: expected unqualified-id before '[' token
+         auto [hospId, hospDist] = findBestHospital(req.locationNode,
+              ^
+dispatch.h:97:13: error: 'hospId' was not declared in this scope
+         if (hospId < 0) {
+             ^~~~~~
+dispatch.h:106:19: error: 'hospId' was not declared in this scope
+         hospitals[hospId].availableBeds--;
+                   ^~~~~~
+dispatch.h:112:35: error: 'hospDist' was not declared in this scope
+         req.travelTime          = hospDist;
+                                   ^~~~~~~~
+dispatch.h: In member function 'bool DispatchEngine::handleCriticalOverride(EmergencyRequest&)':
+dispatch.h:162:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = graph.dijkstra(req.locationNode);
+              ^
+dispatch.h:169:17: error: 'dist' was not declared in this scope
+             if (dist[amb.locationNode] < bestAmbDist) {
+                 ^~~~
+dispatch.h: In member function 'bool DispatchEngine::allocateWithLoadBalance(EmergencyRequest&, float)':
+dispatch.h:254:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = graph.dijkstra(req.locationNode);
+              ^
+dispatch.h:259:21: error: 'dist' was not declared in this scope
+             int d = dist[h.locationNode];
+                     ^~~~
+dispatch.h:273:14: error: expected unqualified-id before '[' token
+         auto [dist2, prev2] = graph.dijkstra(req.locationNode);
+              ^
+dispatch.h:274:59: error: 'dist2' was not declared in this scope
+         ambulances[findNearestAmbulance(req.locationNode, dist2)].available = false;
+                                                           ^~~~~
+dispatch.h:280:23: error: 'dist' was not declared in this scope
+             "AMB-LB", dist[hospitals[bestId].locationNode]);
+                       ^~~~
+dispatch.h: In member function 'DispatchEngine::HospitalChoice DispatchEngine::nearestVsBest(int, Priority)':
+dispatch.h:296:14: error: expected unqualified-id before '[' token
+         auto [dist, prev] = graph.dijkstra(fromNode);
+              ^
+dispatch.h:302:21: error: 'dist' was not declared in this scope
+             int d = dist[h.locationNode];
+                     ^~~~
+main.cpp: In function 'void runScenarios(Graph&, std::vector<Hospital>&, std::vector<Ambulance>&, std::vector<EmergencyRequest>&, std::vector<LogEntry>&)':
+main.cpp:124:10: error: expected unqualified-id before '[' token
+     auto [dist3, prev3] = g.dijkstra(0);
+          ^
+main.cpp:128:13: error: 'dist3' was not declared in this scope
+         if (dist3[h.locationNode] == INF) cout << COL_RED << "UNREACHABLE" << RESET;
+             ^~~~~
+main.cpp:135:13: error: 'dist3' was not declared in this scope
+         if (dist3[h.locationNode] < minD) minD = dist3[h.locationNode];
+             ^~~~~
+main.cpp:137:13: error: 'dist3' was not declared in this scope
+         if (dist3[h.locationNode] == minD) equidist.push_back(h.id);
+             ^~~~~
+main.cpp: In function 'void mainMenu(Graph&, std::vector<Hospital>&, std::vector<Ambulance>&, std::vector<EmergencyRequest>&, std::vector<LogEntry>&)':
+main.cpp:346:18: error: expected unqualified-id before '[' token
+             auto [dist, prev] = g.dijkstra(src);
+                  ^
+main.cpp:348:46: error: 'dist' was not declared in this scope
+             displayShortestPath(g, src, dst, dist, prev);
+                                              ^~~~
